@@ -55,16 +55,13 @@ def check_by_slider(rows, king_y, king_x):
 
     for dy, dx in directions:
         cur_y, cur_x = king_y + dy, king_x + dx
-        print(cur_y, cur_x, "->", dy, dx)
         while in_bounds(cur_y, cur_x, size):
-            print(cur_y, cur_x)
             piece = rows[cur_y][cur_x]
             if piece != '.':
                 is_straight = (dy == 0 or dx == 0)
                 is_diagonal = (dy != 0 and dx != 0)
 
                 if piece == 'Q': # 8 ทิศ
-                    print("Found Q at", cur_y, cur_x, "direction", dy, dx)
                     return True
                 if piece == 'R' and is_straight: # 4 ทิศ (10, 01, -10, 0-1)
                     return True
